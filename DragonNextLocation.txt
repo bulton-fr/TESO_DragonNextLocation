@@ -3,10 +3,12 @@
 ## Version: 1.0.0
 ## Author: bulton-fr
 ## APIVersion: 100028
+## SavedVariables: DragonNextLocationSavedVariables
 ## DependsOn: LibDragonWorldEvent LibMapPins-1.0
 
 Initialise.lua
 Events.lua
+MapPinsList.lua
 MapPins.lua
 Zone.lua
 Run.lua

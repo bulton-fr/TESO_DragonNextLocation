@@ -1,31 +1,11 @@
 DragonNextLocation.MapPins = {}
 DragonNextLocation.MapPins.__index = DragonNextLocation.MapPins
 
-DragonNextLocation.MapPins.pinType   = "DRAGON_NEXT_LOCATION_PIN_TYPE_DRAGON"
-DragonNextLocation.MapPins.pinTypeId = nil
-
-function DragonNextLocation.MapPins:initialise()
-    local pinLayoutData = {
-        level = 50,
-        texture = "DragonNextLocation/textures/dragonNextLocation.dds",
-        size = 35,
-    }
-
-    -- lib:AddPinType(pinTypeString, pinTypeAddCallback, pinTypeOnResizeCallback, pinLayoutData, pinTooltipCreator)
-    self.pinTypeId = DragonNextLocation.libMapPins:AddPinType(
-        self.pinType,
-        function() end,
-        nil,
-        pinLayoutData,
-        "Next dragon position"
-    )
-end
-
 function DragonNextLocation.MapPins:new(dragon)
     local newMapPin = {
-        dragon = dragon,
-        pinTag = "",
-        pin    = nil
+        dragon   = dragon,
+        pinTag   = "",
+        position = {-1, -1},
     }
 
     newMapPin.pinTag = string.format(
@@ -33,12 +13,16 @@ function DragonNextLocation.MapPins:new(dragon)
         dragon.WEInstanceId
     )
 
+    local newPinIdx = DragonNextLocation.MapPinsList.nbPin + 1
+    DragonNextLocation.MapPinsList.pinList[newPinIdx] = newMapPin
+    DragonNextLocation.MapPinsList.nbPin              = newPinIdx
+
     setmetatable(newMapPin, self)
     return newMapPin
 end
 
-function DragonNextLocation.MapPins:addPinsToLocationId(locationId)
-    if not DragonNextLocation.libMapPins:IsEnabled(self.pinType) then
+function DragonNextLocation.MapPins:addPin()
+    if not DragonNextLocation.libMapPins:IsEnabled(DragonNextLocation.MapPinsList.pinType) then
         return
     end
 
@@ -46,18 +30,27 @@ function DragonNextLocation.MapPins:addPinsToLocationId(locationId)
         return
     end
 
-    local position = DragonNextLocation.Zone:obtainPosition(self.dragon, locationId)
-    self.pin       = DragonNextLocation.libMapPins:CreatePin(
-        self.pinType,
+    local currentZoneName = LibDragonWorldEvent.Zone.info.mapName
+    local mapZoneName     = DragonNextLocation.libMapPins:GetZoneAndSubzone(true)
+
+    if currentZoneName ~= mapZoneName then
+        return
+    end
+
+    DragonNextLocation.libMapPins:CreatePin(
+        DragonNextLocation.MapPinsList.pinType,
         self.pinTag,
-        position[1],
-        position[2]
+        self.position[1],
+        self.position[2]
     )
 end
 
+function DragonNextLocation.MapPins:addPinsToLocationId(locationId)
+    self.position = DragonNextLocation.Zone:obtainPosition(self.dragon, locationId)
+    DragonNextLocation.libMapPins:RefreshPins(DragonNextLocation.MapPinsList.pinType)
+end
+
 function DragonNextLocation.MapPins:hidePins()
-    DragonNextLocation.libMapPins:RemoveCustomPin(
-        self.pinType,
-        self.pinTag
-    )
+    self.position = {-1, -1}
+    DragonNextLocation.libMapPins:RefreshPins(DragonNextLocation.MapPinsList.pinType)
 end
