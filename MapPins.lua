@@ -1,6 +1,13 @@
 DragonNextLocation.MapPins = {}
 DragonNextLocation.MapPins.__index = DragonNextLocation.MapPins
 
+--[[
+-- Instanciate a new MapPins "object"
+--
+-- @param dragon The Dragon instance linked to the mapPin
+--
+-- @return DragonNextLocation.MapPins
+--]]
 function DragonNextLocation.MapPins:new(dragon)
     local newMapPin = {
         dragon   = dragon,
@@ -21,6 +28,10 @@ function DragonNextLocation.MapPins:new(dragon)
     return newMapPin
 end
 
+--[[
+-- Called when the player open a map.
+-- Add (or not) the pin on the map
+--]]
 function DragonNextLocation.MapPins:addPin()
     if not DragonNextLocation.libMapPins:IsEnabled(DragonNextLocation.MapPinsList.pinType) then
         return
@@ -33,6 +44,7 @@ function DragonNextLocation.MapPins:addPin()
     local currentZoneName = LibDragonWorldEvent.Zone.info.mapName
     local mapZoneName     = DragonNextLocation.libMapPins:GetZoneAndSubzone(true)
 
+    -- We know worldEvent only for current zone (if Elsweyr zone)
     if currentZoneName ~= mapZoneName then
         return
     end
@@ -45,12 +57,21 @@ function DragonNextLocation.MapPins:addPin()
     )
 end
 
+--[[
+-- To change pin position
+--
+-- @param table position The new pins position.
+--  Key 1 is the normalised position for x
+--  Key 2 is the normalised position for y
+--]]
 function DragonNextLocation.MapPins:changePosition(position)
     self.position = position
     DragonNextLocation.libMapPins:RefreshPins(DragonNextLocation.MapPinsList.pinType)
 end
 
+--[[
+-- To hide a pin (set position to -1/-1)
+--]]
 function DragonNextLocation.MapPins:hide()
-    self.position = {-1, -1}
-    DragonNextLocation.libMapPins:RefreshPins(DragonNextLocation.MapPinsList.pinType)
+    self:changePosition({-1, -1})
 end

@@ -10,7 +10,7 @@ if LibMapPins == nil and LibStub then
 end
 
 --[[
--- Module initialiser
+-- Addon initialiser
 --]]
 function DragonNextLocation:Initialise()
     DragonNextLocation.savedVars = ZO_SavedVars:NewAccountWide("DragonNextLocationSavedVariables", 1, nil, {})

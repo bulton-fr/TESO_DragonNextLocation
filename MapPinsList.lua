@@ -1,9 +1,20 @@
 DragonNextLocation.MapPinsList = {}
-DragonNextLocation.MapPinsList.pinType   = "DRAGON_NEXT_LOCATION_PIN_TYPE_DRAGON"
-DragonNextLocation.MapPinsList.pinTypeId = nil
-DragonNextLocation.MapPinsList.pinList   = {}
-DragonNextLocation.MapPinsList.nbPin     = 0
 
+-- @var string The pinType used for DragonNextLocations pins
+DragonNextLocation.MapPinsList.pinType = "DRAGON_NEXT_LOCATION_PIN_TYPE_DRAGON"
+
+-- @var nil|number The pinTypeId returned by libMapPins
+DragonNextLocation.MapPinsList.pinTypeId = nil
+
+-- @var table The list of instancied MapPins to display
+DragonNextLocation.MapPinsList.pinList = {}
+
+-- @var number The number of item in pinList
+DragonNextLocation.MapPinsList.nbPin = 0
+
+--[[
+-- Declare the pinType with LibMapPins, and add the pin filter.
+--]]
 function DragonNextLocation.MapPinsList:initialise()
     local pinLayoutData = {
         level = 50,
@@ -28,6 +39,11 @@ function DragonNextLocation.MapPinsList:initialise()
     )
 end
 
+--[[
+-- Called when a map is displayed to add pins on the map.  
+-- When the player open the map, the method is called.  
+-- When the player change map to go in subzone or parent zone, the method is called.
+--]]
 function DragonNextLocation.MapPinsList.onMapChange()
     local pinIndex    = 1
     local pinInstance = nil
