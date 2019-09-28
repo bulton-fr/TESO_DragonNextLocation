@@ -45,12 +45,12 @@ function DragonNextLocation.MapPins:addPin()
     )
 end
 
-function DragonNextLocation.MapPins:addPinsToLocationId(locationId)
-    self.position = DragonNextLocation.Zone:obtainPosition(self.dragon, locationId)
+function DragonNextLocation.MapPins:changePosition(position)
+    self.position = position
     DragonNextLocation.libMapPins:RefreshPins(DragonNextLocation.MapPinsList.pinType)
 end
 
-function DragonNextLocation.MapPins:hidePins()
+function DragonNextLocation.MapPins:hide()
     self.position = {-1, -1}
     DragonNextLocation.libMapPins:RefreshPins(DragonNextLocation.MapPinsList.pinType)
 end

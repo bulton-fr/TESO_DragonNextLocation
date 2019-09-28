@@ -27,7 +27,8 @@ function DragonNextLocation.Events.onWELocChanged(eventCode, worldEventInstanceI
         return
     end
     
-    dragon.mapPins:addPinsToLocationId(newWorldEventLocationId)
+    local position = DragonNextLocation.Zone:obtainPosition(self.dragon, newWorldEventLocationId)
+    dragon.mapPins:changePosition(position)
 end
 
 function DragonNextLocation.Events.onDragonLanded(dragon)
@@ -35,5 +36,5 @@ function DragonNextLocation.Events.onDragonLanded(dragon)
         return
     end
 
-    dragon.mapPins:hidePins()
+    dragon.mapPins:hide()
 end
