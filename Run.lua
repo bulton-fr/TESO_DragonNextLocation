@@ -6,6 +6,6 @@ LibDragonWorldEvent.Events.callbackManager:RegisterCallback(
     DragonNextLocation.Events.onNewDragon
 )
 LibDragonWorldEvent.Events.callbackManager:RegisterCallback(
-    LibDragonWorldEvent.Events.callbackEvents.dragon.waiting,
-    DragonNextLocation.Events.onDragonWaiting
+    LibDragonWorldEvent.Events.callbackEvents.dragon.landed,
+    DragonNextLocation.Events.onDragonLanded
 )

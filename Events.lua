@@ -30,7 +30,7 @@ function DragonNextLocation.Events.onWELocChanged(eventCode, worldEventInstanceI
     dragon.mapPins:addPinsToLocationId(newWorldEventLocationId)
 end
 
-function DragonNextLocation.Events.onDragonWaiting(dragon)
+function DragonNextLocation.Events.onDragonLanded(dragon)
     if DragonNextLocation.ready == false then
         return
     end
