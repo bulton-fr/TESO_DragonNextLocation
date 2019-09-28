@@ -40,7 +40,7 @@ function DragonNextLocation.Events.onWELocChanged(eventCode, worldEventInstanceI
         return
     end
     
-    local position = DragonNextLocation.Zone:obtainPosition(self.dragon, newWorldEventLocationId)
+    local position = DragonNextLocation.Zone:obtainPosition(dragon, newWorldEventLocationId)
     dragon.mapPins:changePosition(position)
 end
 
