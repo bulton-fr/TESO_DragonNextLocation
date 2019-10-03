@@ -4,10 +4,10 @@ It's an addon for [The Elder Scroll Online](https://www.elderscrollsonline.com) 
 
 ## Dependencies
 
-Two included libraries :
+Two libraries :
 
-* `LibDragonWorldEvent`
-* `LibMapPins-1.0`
+* [`LibDragonWorldEvent`](https://www.esoui.com/downloads/info2473-LibDragonWorldEvent.html)
+* [`LibMapPins-1.0`](https://www.esoui.com/downloads/info563-LibMapPins.html)
 
 ## Install it
 
