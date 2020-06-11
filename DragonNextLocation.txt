@@ -1,10 +1,10 @@
 ## Title: Dragon Next Location
 ## Description: Show the next location of Elsweyr dragons
-## Version: 1.1.1
+## Version: 1.1.2
 ## Author: bulton-fr
-## APIVersion: 100029
+## APIVersion: 100031 100032
 ## SavedVariables: DragonNextLocationSavedVariables
-## DependsOn: LibDragonWorldEvent LibMapPins-1.0
+## DependsOn: LibDragonWorldEvent LibMapPins-1.0>=10022
 
 Initialise.lua
 Events.lua
