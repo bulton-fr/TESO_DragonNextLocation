@@ -5,10 +5,6 @@ DragonNextLocation.ready      = false
 DragonNextLocation.savedVars  = nil
 DragonNextLocation.libMapPins = LibMapPins
 
-if LibMapPins == nil and LibStub then
-    DragonNextLocation.libMapPins = LibStub("LibMapPins-1.0")
-end
-
 --[[
 -- Addon initialiser
 --]]
