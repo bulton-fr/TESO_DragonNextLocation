@@ -2,7 +2,7 @@ DragonNextLocation.Zone = {}
 
 -- @var table All possition position for each dragons in Elsweyr zones
 DragonNextLocation.Zone.positionList = {
-    [680] = { -- North Elsweyr
+    [1086] = { -- North Elsweyr
         dragons = {
             [1] = { -- South
                 [1] = {0.5558, 0.5507},
@@ -25,7 +25,7 @@ DragonNextLocation.Zone.positionList = {
             }
         }
     },
-    [719] = { -- South Elsweyr
+    [1133] = { -- South Elsweyr
         dragons = {
             [12] = { -- North
                 [22] = {0.4345, 0.3343},
@@ -52,7 +52,7 @@ DragonNextLocation.Zone.positionList = {
 -- @return nil|table
 --]]
 function DragonNextLocation.Zone:obtainPosition(dragon, locationId)
-    local currentZoneId = LibDragonWorldEvent.Zone.info.mapZoneIdx
+    local currentZoneId = LibDragonWorldEvent.Zone.info.zoneId
     local WEInstanceId  = dragon.WEInstanceId
 
     return self.positionList[currentZoneId].dragons[WEInstanceId][locationId]
