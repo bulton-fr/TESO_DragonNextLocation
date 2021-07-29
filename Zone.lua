@@ -52,7 +52,7 @@ DragonNextLocation.Zone.positionList = {
 -- @return nil|table
 --]]
 function DragonNextLocation.Zone:obtainPosition(dragon, locationId)
-    local currentZoneId = LibDragonWorldEvent.Zone.info.zoneId
+    local currentZoneId = LibWorldEvents.Zone.info.zoneId
     local WEInstanceId  = dragon.WEInstanceId
 
     return self.positionList[currentZoneId].dragons[WEInstanceId][locationId]

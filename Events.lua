@@ -35,7 +35,7 @@ function DragonNextLocation.Events.onWELocChanged(eventCode, worldEventInstanceI
         return
     end
 
-    local dragon = LibDragonWorldEvent.DragonList:obtainForWEInstanceId(worldEventInstanceId)
+    local dragon = LibWorldEvents.Dragons.DragonList:obtainForWEInstanceId(worldEventInstanceId)
     if dragon == nil then -- no all loaded
         return
     end

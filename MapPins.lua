@@ -41,11 +41,7 @@ function DragonNextLocation.MapPins:addPin()
         return
     end
 
-    local currentZoneName = LibDragonWorldEvent.Zone.info.mapName
-    local mapZoneName     = DragonNextLocation.libMapPins:GetZoneAndSubzone(true)
-
-    -- We know worldEvent only for current zone (if Elsweyr zone)
-    if currentZoneName ~= mapZoneName then
+    if LibWorldEvents.Dragons.ZoneInfo.onMap == false then
         return
     end
 

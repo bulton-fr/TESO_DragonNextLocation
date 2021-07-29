@@ -6,7 +6,7 @@ It's an addon for [The Elder Scroll Online](https://www.elderscrollsonline.com) 
 
 Two libraries :
 
-* [`LibDragonWorldEvent`](https://www.esoui.com/downloads/info2473-LibDragonWorldEvent.html)
+* [`LibWorldEvents`](https://www.esoui.com/downloads/info2473-LibWorldEvents.html)
 * [`LibMapPins-1.0`](https://www.esoui.com/downloads/info563-LibMapPins.html)
 
 ## Install it
@@ -35,10 +35,10 @@ Game Events triggered :
 * `EVENT_ADD_ON_LOADED` : When the addon is loaded
 * `EVENT_WORLD_EVENT_ACTIVE_LOCATION_CHANGED` : When a dragon start to fly to go at a different location
 
-`LibDragonWorldEvent` events triggered :
+`LibWorldEvents` events triggered :
 
-* `LibDragonWorldEvent.Events.callbackEvents.dragon.new` : When a new dragon instance is created.
-* `LibDragonWorldEvent.Events.callbackEvents.dragon.landed` : When a dragon has landed.
+* `LibWorldEvents.Events.callbackEvents.dragon.new` : When a new dragon instance is created.
+* `LibWorldEvents.Events.callbackEvents.dragon.landed` : When a dragon has landed.
 
 ## About lua files
 
