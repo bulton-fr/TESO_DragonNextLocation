@@ -33,6 +33,10 @@ end
 -- Add (or not) the pin on the map
 --]]
 function DragonNextLocation.MapPins:addPin()
+    if LibWorldEvents.Dragons.ZoneInfo.onMap == false then
+        return
+    end
+
     if not DragonNextLocation.libMapPins:IsEnabled(DragonNextLocation.MapPinsList.pinType) then
         return
     end
@@ -41,7 +45,11 @@ function DragonNextLocation.MapPins:addPin()
         return
     end
 
-    if LibWorldEvents.Dragons.ZoneInfo.onMap == false then
+    local currentZoneName   = LibWorldEvents.Zone.info.mapName
+    local displayedZoneName = DragonNextLocation.libMapPins:GetZoneAndSubzone(true)
+
+    -- Add pin only if the displayed map is a map with dragon
+    if currentZoneName ~= displayedZoneName then
         return
     end
 
