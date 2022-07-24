@@ -2,7 +2,7 @@
 ## Description: Show the next location of Elsweyr dragons
 ## Version: 1.2.1
 ## Author: bulton-fr
-## APIVersion: 101032
+## APIVersion: 101034
 ## SavedVariables: DragonNextLocationSavedVariables
 ## DependsOn: LibWorldEvents LibMapPins-1.0>=10022
 
