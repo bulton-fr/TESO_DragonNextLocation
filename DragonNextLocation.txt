@@ -4,7 +4,7 @@
 ## Author: bulton-fr
 ## APIVersion: 101034
 ## SavedVariables: DragonNextLocationSavedVariables
-## DependsOn: LibWorldEvents LibMapPins-1.0>=10022
+## DependsOn: LibWorldEvents>=220 LibMapPins-1.0>=10022
 
 Initialise.lua
 Events.lua
